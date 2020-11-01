@@ -67,3 +67,7 @@ button {
     height: 55px;
     width: 81px;
 }
+
+button:hover{
+    cursor: pointer;
+}
