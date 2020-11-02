@@ -1,5 +1,6 @@
-const question = document.getElementById('question');
-const choices = Array.from(document.getElementsByClassName('choice-content'));
+const question = document.getElementById("question");
+const choices = Array.from(document.getElementsByClassName("choice-content"));
+
 
 let currentQuestion = {};
 let acceptAnswers = false;
@@ -7,12 +8,12 @@ let score = 0;
 let questionCount = 0;
 let remainingQuestions = [];
 
-let quizQuestions = []
+let questions = []
 
 fetch("questions.json").then(response => {
     return response.json();
 }).then(loadQuestions => {
-    quizQuestions = loadQuestions;
+    questions = loadQuestions;
     startGame();
 })
 .catch( error => {
@@ -26,12 +27,12 @@ fetch("questions.json").then(response => {
 startGame = () => {
     questionCount = 0;
     score = 0;
-    remainingQuestions = [...quizQuestions];
+    remainingQuestions = [...questions];
     getNewQuestion();
 };
 
 getNewQuestion = () => {
-    if(remainingQuestions.length === 0){
+    if(remainingQuestions.length === 0 ){
         //end quiz
         //return window.location.assign("end-quiz.html")
     }
@@ -39,19 +40,19 @@ getNewQuestion = () => {
     questionCount++;
     const quizIndex = Math.floor(Math.random() * remainingQuestions.length);
     currentQuestion = remainingQuestions[quizIndex];
-    question.innerText = currentQuestion;
+    question.innerText = currentQuestion.question;
 
-    choices.forEach( choice => {
+    choices.forEach( (choice) => {
         const number = choice.dataset['number'];
-        choice.innerText = currentQuestion['choice' + number]
+        choice.innerHTML = currentQuestion['choice' + number]
     })
 
     remainingQuestions.splice(quizIndex, 1);
     acceptAnswers = true;
 }
 
-choices.forEach(choice => {
-    choice.addEventListener("click", e => {
+choices.forEach( (choice) => {
+    choice.addEventListener("click", (e) => {
         if(!acceptAnswers) return;
 
         acceptAnswers = false;
@@ -69,10 +70,8 @@ choices.forEach(choice => {
         setTimeout( () => {
             answerSelect.parentElement.classList.remove(classApply);
             getNewQuestion();
-        }, 1000);
+        }, 700);
 
         
     })
 })
-
-startGame();
