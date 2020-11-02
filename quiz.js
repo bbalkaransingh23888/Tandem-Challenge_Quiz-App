@@ -1,5 +1,6 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-content"));
+const gameScore = document.getElementById('gameScore');
 
 
 let currentQuestion = {};
@@ -22,7 +23,8 @@ fetch("questions.json").then(response => {
 
 //Constants
 
-//const maxQuestions = 10;
+const maxQuestions = 10;
+const correctValue = 10;
 
 startGame = () => {
     questionCount = 0;
@@ -32,9 +34,10 @@ startGame = () => {
 };
 
 getNewQuestion = () => {
-    if(remainingQuestions.length === 0 ){
+    if(remainingQuestions.length === 0 || questionCount >= maxQuestions){
         //end quiz
-        //return window.location.assign("end-quiz.html")
+        localStorage.setItem('lastScore', score);
+        return window.location.assign("end-quiz.html")
     }
 
     questionCount++;
@@ -62,8 +65,11 @@ choices.forEach( (choice) => {
         let classApply = 'incorrect';
             if(answerChoice == currentQuestion.answer) {
                 classApply = 'correct';
-                console.log(classApply)
             }
+
+        if (classApply === 'correct'){
+            countScore(correctValue)
+        }
 
         answerSelect.parentElement.classList.add(classApply);
 
@@ -75,3 +81,8 @@ choices.forEach( (choice) => {
         
     })
 })
+
+countScore = (num) => {
+    score += num;
+    gameScore.innerText = score;
+}

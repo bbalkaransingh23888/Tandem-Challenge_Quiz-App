@@ -2,10 +2,10 @@ Tandem Coding Challenge - Quiz App: Version 1
 
 Deployed App Link: https://tandemquizappbbalkaransingh23888.netlify.app/
 
-Description: Play a quick, refreshing, 10-question round of trivia. Trivia questions are randomly generated from a local json file, which also has all the answers. 
+Description: Play a quick, refreshing, 10-question round of trivia. Trivia questions are randomly generated from a local json file, which also has all the answers. The score updates in real-time.
 
 MVP:
-1) Be able to view questions
+1) Be able to view questions 
 2) To indicate if the question was right or wrong immediately after answering
 3) Stop the game after 10 questions have been asked
 4) Only one answer can be selected
