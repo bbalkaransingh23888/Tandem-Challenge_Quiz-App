@@ -6,11 +6,11 @@ Description: Play a quick, refreshing, 10-question round of trivia. Trivia quest
 
 MVP:
 1) Be able to view questions 
-2) To indicate if the question was right or wrong immediately after answering
+2) To indicate if the question was right or wrong immediately after answering (highlights green and increments score if correct, red without incrementing score if incorrect)
 3) Stop the game after 10 questions have been asked
 4) Only one answer can be selected
 5) Questions displayed one at a time
-6) Questions do not repeat
+6) Questions do not repeat in the same round
 7) Score displayed at the end of the game
 
 Post-MVP:
