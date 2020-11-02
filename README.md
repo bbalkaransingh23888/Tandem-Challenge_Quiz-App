@@ -20,7 +20,7 @@ Post-MVP:
 4) Progress bar that shows how far one has gotten through the round; counter that displays how many questions have been answered and how many are left
 5) Additional Styling, maybe bootstrap
 6) Use a frontend framework, such as Vue.js or React.js
-7) Make the quiz app update faster (sometimes, it takes a while for the app to register that you answered)
+7) Make the quiz app update faster (the app freezes occasionally)
 8) Mobile-responsiveness
 
 
